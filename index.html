@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oracle Weather - Professional Weather Forecast</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="weather-app">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="logo">
+                    <i class="fas fa-cloud-sun"></i>
+                    <h1>Oracle Weather</h1>
+                </div>
+                <div class="header-controls">
+                    <button id="darkModeToggle" class="dark-mode-btn">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="container">
+                <!-- Search Section -->
+                <section class="search-section">
+                    <div class="search-container">
+                        <form id="weatherForm" class="search-form">
+                            <div class="search-input-group">
+                                <input type="text" id="cityInput" placeholder="Enter city name..." required>
+                                <button type="submit" class="search-btn">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </form>
+                        <button id="locationBtn" class="location-btn">
+                            <i class="fas fa-location-arrow"></i>
+                            Use My Location
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Current Weather Section -->
+                <section id="currentWeather" class="current-weather hidden">
+                    <div class="weather-card">
+                        <div class="weather-header">
+                            <h2 id="cityName"></h2>
+                            <p id="currentDate"></p>
+                        </div>
+                        <div class="weather-main">
+                            <div class="temperature-section">
+                                <div class="temp-display">
+                                    <span id="temperature"></span>
+                                    <span class="temp-unit">°C</span>
+                                </div>
+                                <div class="weather-icon">
+                                    <div id="weatherIcon" class="weather-icon-container"></div>
+                                </div>
+                            </div>
+                            <div class="weather-description">
+                                <p id="weatherCondition"></p>
+                                <p id="feelsLike"></p>
+                            </div>
+                        </div>
+                        <div class="weather-details">
+                            <div class="detail-item">
+                                <i class="fas fa-tint"></i>
+                                <span>Humidity</span>
+                                <span id="humidity"></span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-wind"></i>
+                                <span>Wind Speed</span>
+                                <span id="windSpeed"></span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-eye"></i>
+                                <span>Visibility</span>
+                                <span id="visibility"></span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-thermometer-half"></i>
+                                <span>Pressure</span>
+                                <span id="pressure"></span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-sun"></i>
+                                <span>UV Index</span>
+                                <span id="uvIndex"></span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-sunrise"></i>
+                                <span>Sunrise</span>
+                                <span id="sunrise"></span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-sunset"></i>
+                                <span>Sunset</span>
+                                <span id="sunset"></span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-leaf"></i>
+                                <span>Air Quality</span>
+                                <span id="airQuality"></span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Hourly Forecast Section -->
+                <section id="hourlyForecast" class="hourly-forecast-section hidden">
+                    <h3>24-Hour Forecast</h3>
+                    <div class="hourly-container" id="hourlyContainer">
+                        <!-- Hourly items will be dynamically generated -->
+                    </div>
+                </section>
+
+                <!-- 5-Day Forecast Section -->
+                <section id="forecast" class="forecast-section hidden">
+                    <h3>5-Day Forecast</h3>
+                    <div class="forecast-container" id="forecastContainer">
+                        <!-- Forecast items will be dynamically generated -->
+                    </div>
+                </section>
+
+                <!-- Weather Map Section -->
+                <section id="weatherMap" class="weather-map-section hidden">
+                    <h3>Weather Map</h3>
+                    <div class="map-container">
+                        <div class="map-controls">
+                            <button class="map-btn active" data-layer="temp">Temperature</button>
+                            <button class="map-btn" data-layer="precipitation">Precipitation</button>
+                            <button class="map-btn" data-layer="wind">Wind</button>
+                            <button class="map-btn" data-layer="clouds">Clouds</button>
+                        </div>
+                        <div id="mapDisplay" class="map-display">
+                            <p>Interactive weather map will be displayed here</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Loading Spinner -->
+                <div id="loadingSpinner" class="loading-spinner hidden">
+                    <div class="spinner"></div>
+                    <p>Loading weather data...</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2024 Oracle Weather. Professional weather forecasting.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Background Animation -->
+    <div class="weather-background" id="weatherBackground">
+        <div class="particles" id="particles"></div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="icons.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
