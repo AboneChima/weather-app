@@ -21,7 +21,7 @@ A modern, responsive weather application built with vanilla JavaScript, HTML, an
 - Internet connection
 - OpenWeatherMap API key (free)
 
-### Installation
+### For Local Development
 
 1. **Clone the repository**
    ```bash
@@ -56,6 +56,12 @@ A modern, responsive weather application built with vanilla JavaScript, HTML, an
    # Using PHP
    php -S localhost:8080
    ```
+
+### For GitHub Pages Deployment
+The app is already configured to work on GitHub Pages! The API key is embedded in the code for easy deployment. Simply:
+1. Fork this repository
+2. Enable GitHub Pages in repository settings
+3. Your weather app will be live at `https://yourusername.github.io/weather-app/`
 
 ## 🔧 Configuration
 
