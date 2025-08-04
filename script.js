@@ -1,8 +1,11 @@
 // Weather App JavaScript
 class WeatherApp {
     constructor() {
-        this.apiKey = CONFIG.OPENWEATHERMAP_API_KEY;
-        this.apiUrl = CONFIG.API_URL;
+        // Try to use CONFIG if available, otherwise use fallback for GitHub Pages
+        this.apiKey = (typeof CONFIG !== 'undefined' && CONFIG.OPENWEATHERMAP_API_KEY !== 'YOUR_OPENWEATHERMAP_API_KEY') 
+            ? CONFIG.OPENWEATHERMAP_API_KEY 
+            : '833fc4bd26d45835d2d1238cfda12782'; // Fallback API key for GitHub Pages
+        this.apiUrl = (typeof CONFIG !== 'undefined') ? CONFIG.API_URL : 'https://api.openweathermap.org/data/2.5';
         this.currentWeatherData = null;
         this.isDarkMode = localStorage.getItem('darkMode') === 'true';
         
