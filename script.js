@@ -2,10 +2,10 @@
 class WeatherApp {
     constructor() {
         // Try to use CONFIG if available, otherwise use fallback for GitHub Pages
-        this.apiKey = (typeof CONFIG !== 'undefined' && CONFIG.OPENWEATHERMAP_API_KEY !== 'YOUR_OPENWEATHERMAP_API_KEY') 
-            ? CONFIG.OPENWEATHERMAP_API_KEY 
+        this.apiKey = (typeof window.CONFIG !== 'undefined' && window.CONFIG.OPENWEATHERMAP_API_KEY !== 'YOUR_OPENWEATHERMAP_API_KEY') 
+            ? window.CONFIG.OPENWEATHERMAP_API_KEY 
             : '833fc4bd26d45835d2d1238cfda12782'; // Fallback API key for GitHub Pages
-        this.apiUrl = (typeof CONFIG !== 'undefined') ? CONFIG.API_URL : 'https://api.openweathermap.org/data/2.5';
+        this.apiUrl = (typeof window.CONFIG !== 'undefined') ? window.CONFIG.API_URL : 'https://api.openweathermap.org/data/2.5';
         this.currentWeatherData = null;
         this.isDarkMode = localStorage.getItem('darkMode') === 'true';
         
@@ -541,15 +541,4 @@ document.addEventListener('DOMContentLoaded', () => {
     new WeatherApp();
 });
 
-// Service Worker Registration for PWA capabilities (optional)
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-            .then(registration => {
-                console.log('SW registered: ', registration);
-            })
-            .catch(registrationError => {
-                console.log('SW registration failed: ', registrationError);
-            });
-    });
-}
+// Service Worker Registration removed - no sw.js file available

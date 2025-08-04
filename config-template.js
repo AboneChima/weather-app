@@ -17,3 +17,8 @@ if (typeof window === 'undefined' && typeof process !== 'undefined' && process.e
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = CONFIG;
 }
+
+// Make CONFIG available globally in browser
+if (typeof window !== 'undefined') {
+    window.CONFIG = CONFIG;
+}
